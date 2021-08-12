@@ -2,31 +2,6 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const fs = require("fs");
-var portAudio = require("naudiodon");
-var ffmpeg = require("fluent-ffmpeg");
-//console.log(portAudio.getDevices());
-
-/* var ai = new portAudio.AudioIO({
-  inOptions: {
-    channelCount: 2,
-    sampleFormat: portAudio.SampleFormat16Bit,
-    sampleRate: 44100,
-    deviceId: 14, // Use -1 or omit the deviceId to select the default device
-    closeOnError: true, // Close the stream if an audio error is detected, if set false then just log the error
-  },
-});
-
-var ws = fs.createWriteStream("rawAudio.raw");
-
-//Start streaming
-ai.pipe(ws);
-ai.start();
-
-setTimeout(() => {
-  ws.close();
-}, 5000); */
-
-//ffmpeg(ws).output("wav");
 
 function createWindow() {
   // Create the browser window.
@@ -42,6 +17,7 @@ function createWindow() {
   // and load the index.html of the app.
   mainWindow.loadFile("index.html");
   mainWindow.webContents.toggleDevTools();
+  mainWindow.maximize();
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }
