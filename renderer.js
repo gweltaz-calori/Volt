@@ -37,7 +37,6 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(async (stream) => {
       .getAudioTracks()
       .forEach((track) => remoteConnection.addTrack(track, audioStream));
     remoteConnection.onicecandidate = ({ candidate }) => {
-      console.log("candidate");
       candidate &&
         socket.emit("candidate", { socket_id: offer.socket_id, candidate });
     };
@@ -45,8 +44,15 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(async (stream) => {
     remoteConnection
       .setRemoteDescription(offer.description)
       .then(() => remoteConnection.createAnswer())
-      .then((answer) => remoteConnection.setLocalDescription(answer))
+      .then(async (answer) => {
+        answer.sdp = answer.sdp.replace(
+          "useinbandfec=1",
+          "useinbandfec=1; stereo=1; maxaveragebitrate=510000"
+        );
+        return await remoteConnection.setLocalDescription(answer);
+      })
       .then(() => {
+        console.log(remoteConnection.localDescription);
         console.log("emit answer");
         socket.emit("answer", {
           socket_id: offer.socket_id,
