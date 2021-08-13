@@ -3,6 +3,11 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
+  overflow: hidden;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -27,6 +32,10 @@ select {
   padding: 11px 39px;
   border: none;
   outline: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-weight: bold;
 }
 
 .copy {
@@ -39,6 +48,12 @@ select {
   font-weight: bold;
   cursor: pointer;
   margin-top: 21px;
+  transition: color 0.3s, background 0.3s;
+}
+
+.copy:hover {
+  background: white;
+  color: #23252f;
 }
 
 .start-streaming {
@@ -46,4 +61,32 @@ select {
   background: none;
   cursor: pointer;
   margin-top: 21px;
+}
+
+.select_wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 0.4s;
+  border-radius: 26px;
+}
+
+.select_wrapper svg {
+  position: absolute;
+  right: 20px;
+}
+
+.button_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button_wrapper span {
+  color: white;
+  font-weight: bold;
+  margin-top: 10px;
+  text-transform: uppercase;
 }

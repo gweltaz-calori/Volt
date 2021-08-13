@@ -11,6 +11,9 @@ let startButton = document.querySelector(".start-streaming");
 let copyButton = document.querySelector(".copy");
 let loader = document.querySelector(".loader");
 let center = document.querySelector(".center");
+let stopIcon = document.querySelector(".stop-icon");
+let startIcon = document.querySelector(".start-icon");
+let recordText = document.querySelector(".record-text");
 
 const iceConfiguration = {
   iceServers: [
@@ -80,6 +83,10 @@ socket.on("session:created", (newSession) => {
       });
       return;
     } */
+
+    stopIcon.style.display = "block";
+    startIcon.style.display = "none";
+    recordText.textContent = "Recording";
 
     let devices = await navigator.mediaDevices.enumerateDevices();
     devices = devices.filter(
