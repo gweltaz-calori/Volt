@@ -1,0 +1,49 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: #000000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+select {
+  background: #23252f;
+  border-radius: 26px;
+  color: white;
+  padding: 11px 39px;
+  border: none;
+  outline: 0;
+}
+
+.copy {
+  background: #23252f;
+  border-radius: 26px;
+  color: white;
+  border: 0;
+  padding: 15px 23px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 21px;
+}
+
+.start-streaming {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  margin-top: 21px;
+}

@@ -5,11 +5,35 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
 
     <title>Hello World!</title>
+    <link rel="stylesheet" href="src/style.css">
   </head>
   <body>
-    <select id="devices"></select>
-    <button class="start-streaming">Start Streaming</button>
-    <button style="display: none" class="copy">Copy Session Link</button>
+    <div class="center" style="display: none;">
+      <select id="devices"></select>
+      <button style="display: none" class="copy">Copy Session Link</button>
+      <button class="start-streaming">
+        <svg width="50" height="50" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="15.794" r="15.5706" fill="#F2615D"/>
+          <rect x="11.1769" y="10.9709" width="9.64632" height="9.64632" rx="4.82316" fill="white"/>
+        </svg>
+        </button>
+    </div>
+    <svg class="loader" width="68" height="68" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+      <g fill="none" fill-rule="evenodd">
+          <g transform="translate(1 1)" stroke-width="2">
+              <circle stroke-opacity=".5" cx="18" cy="18" r="18"/>
+              <path d="M36 18c0-9.94-8.06-18-18-18">
+                  <animateTransform
+                      attributeName="transform"
+                      type="rotate"
+                      from="0 18 18"
+                      to="360 18 18"
+                      dur="1s"
+                      repeatCount="indefinite"/>
+              </path>
+          </g>
+      </g>
+    </svg>
     <script src="./renderer.js"></script>
   </body>
 </html>

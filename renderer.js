@@ -1,5 +1,4 @@
 require("dotenv").config();
-console.log();
 const io = require("socket.io-client");
 const { clipboard } = require("electron");
 
@@ -10,6 +9,8 @@ let remoteConnection;
 let devicesEl = document.querySelector("#devices");
 let startButton = document.querySelector(".start-streaming");
 let copyButton = document.querySelector(".copy");
+let loader = document.querySelector(".loader");
+let center = document.querySelector(".center");
 
 const iceConfiguration = {
   iceServers: [
@@ -62,12 +63,15 @@ copyButton.addEventListener("click", async () => {
 });
 
 socket.emit("create:session");
+console.log("creating session");
 socket.on("session:created", (newSession) => {
   session = newSession;
   console.log("Session Started");
+  loader.style.display = "none";
+  center.style.display = "flex";
 
   startButton.addEventListener("click", async () => {
-    if (startButton.textContent === "Stop Streaming") {
+    /* if (startButton.textContent === "Stop Streaming") {
       remoteConnection.close();
       remoteConnection = null;
       startButton.textContent = "Start Streaming";
@@ -75,7 +79,7 @@ socket.on("session:created", (newSession) => {
         session,
       });
       return;
-    }
+    } */
 
     let devices = await navigator.mediaDevices.enumerateDevices();
     devices = devices.filter(
@@ -105,9 +109,9 @@ socket.on("session:created", (newSession) => {
           },
           video: false,
         });
-
+        console.log("got media");
         copyButton.style.display = "inline";
-        startButton.textContent = "Stop Streaming";
+        //startButton.textContent = "Stop Streaming";
         socket.on("offer", (offer) => {
           remoteConnection = new RTCPeerConnection(iceConfiguration);
 

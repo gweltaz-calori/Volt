@@ -3,18 +3,25 @@ const fs = require("fs");
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 500,
+    height: 500,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
     },
+    /* resizable: false, */
+    show: false,
+
+    backgroundColor: "#000000",
   });
 
   mainWindow.loadFile("index.html");
-  mainWindow.webContents.toggleDevTools();
-  mainWindow.maximize();
   mainWindow.setMenuBarVisibility(false);
+
+  mainWindow.webContents.once("did-finish-load", () => {
+    mainWindow.show();
+    mainWindow.focus();
+  });
 }
 
 app.whenReady().then(() => {
