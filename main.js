@@ -18,6 +18,7 @@ function createWindow() {
   mainWindow.loadFile("index.html");
   mainWindow.webContents.toggleDevTools();
   mainWindow.maximize();
+  mainWindow.setMenuBarVisibility(false);
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 }
