@@ -5,51 +5,107 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
 
     <title>Audio Recorder</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/assets/style.css" />
   </head>
   <body>
-    <div class="center" style="display: none;">
-     <div class="select_wrapper">
-      <svg width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1.33313 1.3103L6.72412 6.70129L12.1151 1.3103" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <select id="devices"></select>
-     </div>
+    <div class="center" style="display: none">
+      <div class="select_wrapper">
+        <svg
+          width="13"
+          height="8"
+          viewBox="0 0 13 8"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1.33313 1.3103L6.72412 6.70129L12.1151 1.3103"
+            stroke="white"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <select id="devices"></select>
+      </div>
       <div class="button_wrapper">
         <button class="start-streaming">
-          <svg class="start-icon" width="50" height="50" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="16" cy="15.794" r="15.5706" fill="#F2615D"/>
-            <rect x="11.1769" y="10.9709" width="9.64632" height="9.64632" rx="4.82316" fill="white"/>
+          <svg
+            class="start-icon"
+            width="50"
+            height="50"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="16" cy="15.794" r="15.5706" fill="#F2615D" />
+            <rect
+              x="11.1769"
+              y="10.9709"
+              width="9.64632"
+              height="9.64632"
+              rx="4.82316"
+              fill="white"
+            />
           </svg>
-          <svg style="display: none;" class="stop-icon" width="50" height="50" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="16" cy="15.794" r="15.5706" fill="#F2615D"/>
-            <path d="M13.2503 12.0431V19.5449" stroke="white" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
-            <path d="M18.7496 12.0431V19.5449" stroke="white" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+          <svg
+            style="display: none"
+            class="stop-icon"
+            width="50"
+            height="50"
+            viewBox="0 0 32 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="16" cy="15.794" r="15.5706" fill="#F2615D" />
+            <path
+              d="M13.2503 12.0431V19.5449"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="square"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M18.7496 12.0431V19.5449"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="square"
+              stroke-linejoin="round"
+            />
           </svg>
         </button>
         <span class="record-text">RECORD</span>
       </div>
       <button style="display: none" class="copy">Copy Session Link</button>
     </div>
-    <svg class="loader" width="68" height="68" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+    <svg
+      class="loader"
+      width="68"
+      height="68"
+      viewBox="0 0 38 38"
+      xmlns="http://www.w3.org/2000/svg"
+      stroke="#fff"
+    >
       <g fill="none" fill-rule="evenodd">
-          <g transform="translate(1 1)" stroke-width="2">
-              <circle stroke-opacity=".5" cx="18" cy="18" r="18"/>
-              <path d="M36 18c0-9.94-8.06-18-18-18">
-                  <animateTransform
-                      attributeName="transform"
-                      type="rotate"
-                      from="0 18 18"
-                      to="360 18 18"
-                      dur="1s"
-                      repeatCount="indefinite"/>
-              </path>
-          </g>
+        <g transform="translate(1 1)" stroke-width="2">
+          <circle stroke-opacity=".5" cx="18" cy="18" r="18" />
+          <path d="M36 18c0-9.94-8.06-18-18-18">
+            <animateTransform
+              attributeName="transform"
+              type="rotate"
+              from="0 18 18"
+              to="360 18 18"
+              dur="1s"
+              repeatCount="indefinite"
+            />
+          </path>
+        </g>
       </g>
     </svg>
-    <script src="./renderer.js"></script>
+    <script src="./src/js/renderer.js"></script>
   </body>
 </html>
