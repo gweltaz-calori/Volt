@@ -1,24 +1,17 @@
 {
-  "name": "electron-quick-start",
+  "name": "audio-stream",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "Stream Audio From you computer in high quality",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder --win"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
+  "author": "Gweltaz Calori",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^13.1.9",
-    "electron-rebuild": "^3.1.1"
+    "electron-builder": "^22.11.7"
   },
   "dependencies": {
     "axios": "^0.21.1",

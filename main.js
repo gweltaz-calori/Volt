@@ -9,7 +9,7 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false,
     },
-    resizable: false,
+    resizable: true,
     show: false,
 
     backgroundColor: "#000000",
