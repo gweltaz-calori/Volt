@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require("electron");
 const fs = require("fs");
+const path = require("path");
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -9,8 +10,9 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false,
     },
-    resizable: true,
+    resizable: false,
     show: false,
+    icon: path.resolve(__dirname, "./build/icon.png"),
 
     backgroundColor: "#000000",
   });

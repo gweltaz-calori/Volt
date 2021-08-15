@@ -1,5 +1,5 @@
 {
-  "name": "audio-stream",
+  "name": "volt",
   "version": "1.0.0",
   "description": "Stream Audio From you computer in high quality",
   "main": "main.js",
