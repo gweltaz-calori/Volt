@@ -8,6 +8,7 @@ body {
 
 * {
   font-family: "Montserrat", sans-serif;
+  user-select: none;
 }
 
 body {
@@ -89,4 +90,73 @@ select {
   font-weight: bold;
   margin-top: 10px;
   text-transform: uppercase;
+}
+
+.session-users {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.session-users__count {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 13px;
+
+  color: #ffffff;
+  margin-right: 8px;
+}
+
+.radio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+}
+
+.radio.checked .radio__background-inner {
+  opacity: 1;
+}
+
+.radio label {
+  margin-left: 7px;
+}
+
+.radio input {
+  opacity: 0;
+}
+
+.radio__background {
+  width: 23px;
+  height: 23px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radio__background-inner {
+  background-color: white;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  opacity: 0;
+}
+
+.types {
+  display: flex;
+  margin-bottom: 13px;
+}
+
+.radio label {
+  font-weight: 600;
+  font-size: 14px;
+
+  color: #ffffff;
 }

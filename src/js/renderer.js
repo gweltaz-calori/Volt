@@ -12,6 +12,9 @@ let center = document.querySelector(".center");
 let stopIcon = document.querySelector(".stop-icon");
 let startIcon = document.querySelector(".start-icon");
 let recordText = document.querySelector(".record-text");
+let sessionUsersCount = document.querySelector(".session-users__count");
+/* let radios = document.querySelectorAll(".radio");
+let inputsRadio = document.querySelector("#inputs"); */
 
 let isStreaming = false;
 let session = null;
@@ -38,7 +41,11 @@ const iceConfiguration = {
   ],
 };
 
+function parseBool(boolString) {
+  return boolString == "true" ? true : false;
+}
 async function getDevices() {
+  devicesEl.innerHTML = "";
   let devices = await navigator.mediaDevices.enumerateDevices();
   devices = devices.filter(
     (device) =>
@@ -76,6 +83,7 @@ socket.on("users", onUsers);
 
 function onUsers(newUsers) {
   users = newUsers;
+  sessionUsersCount.textContent = `${users.length} Users`;
 }
 
 function onSessionCreated(newSession) {
@@ -140,7 +148,6 @@ async function startStreaming() {
 }
 
 async function initLocalConnection() {
-  console.log("init local connection");
   localConnection = new RTCPeerConnection(iceConfiguration);
 
   audioStream
@@ -179,10 +186,6 @@ function hideCopyButton() {
 
 async function getLocalStreamFromDevice() {
   let devices = await navigator.mediaDevices.enumerateDevices();
-  devices = devices.filter(
-    (device) =>
-      device.kind == "audioinput" && device.deviceId !== "communications"
-  );
   const device = devices.find((device) => device.deviceId === devicesEl.value);
   const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
   const [track] = stream.getTracks();
@@ -211,7 +214,6 @@ function stopStreaming() {
   remoteConnection && remoteConnection.close();
   localConnection && localConnection.close();
 
-  console.log("STOPING STREAMING ", session);
   socket.off("offer");
   socket.off("candidate");
   socket.off("answer");
@@ -244,3 +246,20 @@ startButton.addEventListener("click", async () => {
     });
   }
 });
+/* 
+for (let radio of radios) {
+  radio.addEventListener("click", (e) => {
+    const clicked = e.target.closest(".radio");
+    clicked.setAttribute("data-checked", true);
+    clicked.classList.add("checked");
+
+    [...radios]
+      .filter((radioItem) => radioItem !== clicked)
+      .map((radioItem) => {
+        radioItem.setAttribute("data-checked", false);
+        radioItem.classList.remove("checked");
+      });
+
+    getDevices();
+  });
+} */
