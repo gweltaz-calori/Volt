@@ -14,6 +14,6 @@ The best way to use Volt is with Voicemeeter or any virtual cable. Share the aud
 
 If you want to use Volt locally you have to use the server
 
-[https://github.com/gweltaz-calori/audio-stream-server](https://github.com/gweltaz-calori/audio-stream-server)
+[https://github.com/gweltaz-calori/Volt-Server](https://github.com/gweltaz-calori/Volt-Server)
 
 Change the server url in `env.json`
