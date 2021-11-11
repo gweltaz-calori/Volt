@@ -1,8 +1,9 @@
-const io = require("socket.io-client");
+/* const io = require("socket.io-client"); */
 const envJson = require("../../env.json");
 process.env.SERVER_URL = envJson.SERVER_URL;
 const { clipboard } = require("electron");
 const socket = io(process.env.SERVER_URL);
+console.log(process.env.SERVER_URL);
 
 let devicesEl = document.querySelector("#devices");
 let startButton = document.querySelector(".start-streaming");

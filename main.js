@@ -10,7 +10,7 @@ function createWindow() {
       nodeIntegration: true,
       contextIsolation: false,
     },
-    resizable: false,
+    resizable: true,
     show: false,
     icon: path.resolve(__dirname, "./build/icon.png"),
 
@@ -23,6 +23,7 @@ function createWindow() {
   mainWindow.webContents.once("did-finish-load", () => {
     mainWindow.show();
     mainWindow.focus();
+    mainWindow.webContents.toggleDevTools();
   });
 }
 
